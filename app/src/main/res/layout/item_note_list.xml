@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.task.noteapp.features.notes.presentation.adapter.note.NoteItem" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_normal">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgNote"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/margin_small"
+            android:scaleType="fitXY"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:url="@{item.imageUrl}"
+            app:visibility="@{item.imageUrl}"
+            tools:src="@drawable/outline_delete_outline_24"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtTitle"
+            style="@style/TitleStyle"
+            android:layout_marginTop="@dimen/margin_small"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:ellipsize="marquee"
+            android:text="@{item.title}"
+            app:layout_constraintEnd_toStartOf="@id/imgDel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgNote"
+            tools:text="Title" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtDesc"
+            style="@style/DescStyle"
+            android:layout_marginTop="@dimen/margin_small"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:ellipsize="marquee"
+            android:maxLines="2"
+            android:text="@{item.desc}"
+            app:layout_constraintEnd_toStartOf="@id/imgDel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtTitle"
+            app:visibility="@{item.desc}"
+            tools:text="Title Title Title Title Title Title Title Title Title Title Title Title " />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtDate"
+            style="@style/DescStyle"
+            android:layout_marginTop="@dimen/margin_small"
+            app:date="@{item.createDate}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtDesc"
+            tools:text="dd/mm/yyyy" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtEdited"
+            style="@style/DescStyle"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="@string/edited"
+            android:textColor="@color/red"
+            app:layout_constraintStart_toEndOf="@id/txtDate"
+            app:layout_constraintTop_toBottomOf="@id/txtDesc"
+            app:visibility="@{item.isEdited}" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgDel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_xsmall"
+            android:layout_marginEnd="@dimen/margin_xsmall"
+            android:src="@drawable/outline_delete_outline_24"
+            app:layout_constraintBottom_toBottomOf="@id/txtDesc"
+            app:layout_constraintEnd_toStartOf="@id/imgEdit"
+            app:layout_constraintTop_toTopOf="@id/txtDesc" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_xsmall"
+            android:src="@drawable/outline_mode_edit_24"
+            app:layout_constraintBottom_toBottomOf="@id/txtDesc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txtDesc" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

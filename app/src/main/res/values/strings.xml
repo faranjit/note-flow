@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">NoteApp</string>
+    <string name="my_notes">My Notes</string>
+    <string name="save">Save</string>
+    <string name="save_note">Save Note</string>
+    <string name="create_note">Create Note!</string>
+    <string name="hint_title">Give a title</string>
+    <string name="desc_hint">Explain this note</string>
+    <string name="image_tint">Do you have any image?</string>
+    <string name="create_new_note">Create New Note</string>
+    <string name="edit_note">Edit Note</string>
+    <string name="error_title">Title is required!</string>
+    <string name="edited">Show Edit History</string>
+    <string name="delete_note_error">This note can not be deleted due to missing id</string>
+    <string name="history">History</string>
+</resources>
